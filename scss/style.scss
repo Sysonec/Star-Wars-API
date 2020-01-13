@@ -1,0 +1,349 @@
+@import "custom-variables";
+@import "custom-utilities";
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+// Navbar
+.navbar {
+  padding: 4rem 0;
+  background: url("../img/stars-3.jpg") repeat center center / cover;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    @include size(phone) {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .container {
+    max-width: 1500px !important;
+    .navbar-nav {
+      position: relative;
+
+      .nav-logo {
+        .logo {
+          width: 250px;
+          position: absolute;
+          top: 50%;
+          left: 48%;
+          -webkit-transform: translate(-50%, -48%);
+          transform: translate(-50%, -48%);
+
+          @include size(phone) {
+            width: 200px;
+          }
+        }
+      }
+
+      .nav-item-content {
+        position: absolute;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+
+        &:first-child {
+          left: 0;
+        }
+
+        &:last-child {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Section: Quick Menu
+#quick-menu {
+  border-top: 1px solid $light-color;
+  border-bottom: 1px solid $light-color-transparent;
+  .container {
+    .list-group.quick-links {
+      @include size(desktop-bg) {
+        margin: auto;
+      }
+
+      @include size(phone) {
+        display: block;
+      }
+
+      .list-group-item {
+        z-index: 9999;
+        background: $dark-color;
+        border-radius: 0;
+        border: none;
+        border-left: 1px solid $light-color;
+        border-right: 1px solid $light-color;
+
+        @include size(phone) {
+          border: none;
+          border-top: 1px solid $light-color;
+          &:first-child {
+            border-top: none;
+          }
+        }
+
+        .quick-link {
+          color: $gray-color;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: $light-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Section: Main Content
+#main-content {
+  background: url("../img/main-bg.jpg") no-repeat center center / cover;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+
+  @include size(phone) {
+    height: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .container {
+    max-width: 1600px;
+    .row {
+      @include size(desktop-md) {
+        .display-4 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @include size(phone) {
+        .display-4 {
+          font-size: 2rem;
+        }
+      }
+      // Search stuff
+      .col-lg-6.search-stuff {
+        @include size(desktop-md) {
+          padding: 0 !important;
+          margin-top: 0.5rem !important;
+        }
+        @include size(phone) {
+          padding: 0 !important;
+        }
+        #selectSearch {
+          padding: 0.45rem 2rem;
+          font-size: 1.4rem;
+          background: $light-color;
+          border: 4px solid $light-color;
+          border-radius: 8px;
+          color: $dark-color;
+          -webkit-transition: all 0.5s $ease-in-out;
+          transition: all 0.5s $ease-in-out;
+          font-weight: bold;
+
+          &:hover {
+            background: $dark-color;
+            color: $light-color;
+          }
+          option {
+            border: none;
+          }
+        }
+
+        .input-group {
+          width: 60%;
+
+          @include size(phone) {
+            width: 90%;
+          }
+
+          .form-control {
+            background: $dark-color-transparent;
+            font-size: 1.6rem;
+            color: $light-color;
+            -webkit-transition: all 0.4s $ease-in-out;
+            transition: all 0.4s $ease-in-out;
+            border: 2px solid $light-color;
+            border-right: none;
+
+            @include size(phone) {
+              font-size: 1.4rem;
+            }
+          }
+
+          .input-group-append {
+            .input-group-text {
+              background: $dark-color-transparent;
+              font-size: 1.7rem;
+              border: 2px solid $light-color;
+              border-left: none;
+            }
+          }
+        }
+        .btn {
+          @extend %btn-shared;
+          color: $light-color;
+          padding: 0.5rem 1.8rem;
+          border-radius: 0;
+        }
+
+        .card-result {
+          background: url("../img/galaxy-background-2.jpg") no-repeat center
+            center / cover;
+          border: 2px solid $light-color;
+          padding: 2rem;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          position: relative;
+
+          @include size(phone) {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+
+            h2,
+            span {
+              font-size: 1.7rem;
+            }
+
+            span {
+              display: block;
+            }
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $dark-color;
+            opacity: 0.8;
+          }
+
+          h2 {
+            z-index: 1;
+          }
+
+          .list-group {
+            .list-group-item {
+              background: transparent;
+              border: none;
+              border-radius: 0;
+              border-bottom: 1px solid $light-color;
+              margin-right: 1.2rem;
+              color: $light-color;
+            }
+          }
+        }
+
+        #search-content {
+          overflow: auto;
+          max-height: 60vh;
+          padding-right: 0.8rem;
+
+          @include size(phone) {
+            padding: 0;
+          }
+        }
+      }
+      .col-lg-6.play-quiz {
+        .btn {
+          @extend %btn-shared;
+          margin-top: 2.2rem;
+        }
+
+        .card-quiz {
+          color: $light-color;
+          background: $dark-color-transparent;
+          border: 4px solid $light-color;
+          border-right: none;
+          overflow-y: auto;
+          height: 55vh;
+
+          @include size(desktop-md) {
+            height: 40vh;
+          }
+
+          @include size(phone) {
+            h2 {
+              font-size: 1.7rem;
+            }
+          }
+
+          .char-img {
+            width: 200px;
+          }
+
+          .quiz-questions {
+            .question-content,
+            .form-check-label {
+              font-size: 1.5rem;
+            }
+
+            .answers {
+              margin-top: 1.2rem;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+              flex-direction: row;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+
+              .form-check {
+                margin-left: 2rem;
+                .form-check-label {
+                  margin-top: -0.5rem;
+                  padding-bottom: 1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

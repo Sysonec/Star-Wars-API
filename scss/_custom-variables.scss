@@ -1,0 +1,28 @@
+$light-color-transparent: rgba(255, 255, 255, 0.7);
+$dark-color-transparent: rgba(0, 0, 0, 0.6);
+$dark-color: #000;
+$gray-color: #c3c3c3;
+$dark-gray: #0e0e0e;
+$gray-color-transparent: rgba(54, 54, 54, 0.8);
+$light-color: #fff;
+$bar-color: #dde4e9;
+$primary-color: #634d9e;
+$secondary-color: #370968;
+$ease-in-out: cubic-bezier(0.59, 0.02, 0.48, 1);
+$ease-in: cubic-bezier(0.78, -0.02, 0.66, 1.29);
+
+@mixin size($size) {
+  @if $size == desktop-bg {
+    @media screen and (min-width: 500px) {
+      @content;
+    }
+  } @else if $size == desktop-md {
+    @media screen and (max-width: 1300px) {
+      @content;
+    }
+  } @else if $size == phone {
+    @media screen and (max-width: 500px) {
+      @content;
+    }
+  }
+}
